@@ -135,7 +135,37 @@ public class DeliveryCenter
         }
     }
 
+    public void PrintItrackable(ITrackable shipment)
+    {
+        shipment.GetTrackingStatus();
+    }
 
+    public void PrintInsurance(IInsurable shipment)
+    {
+        shipment.CalculateInsurance();
+    }
+
+    public void PrintTrackingStatuses()
+    {
+        foreach (Shipment shipment in shipments)
+        {
+            if (shipment != null)
+            {
+                Console.WriteLine(shipment.GetTrackingStatus());
+            }
+        }
+    }
+
+    public void PrintInsurance()
+    {
+        foreach (Shipment shipment in shipments)
+        {
+            if (shipment != null)
+            {
+                Console.WriteLine(shipment.CalculateInsurance());
+            }
+        }
+    }
 
     #endregion
 }
