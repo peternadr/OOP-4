@@ -1,8 +1,7 @@
 ﻿namespace DeliverySystem.SmartDeliveryManagementSystem;
 
-public class StandardShipment : Shipment, ITrackable
+public class StandardShipment : Shipment
 {
-
     #region constructor
     public StandardShipment(string trackingCode, string description, decimal weight, decimal deliveryFee) : base(trackingCode, description, weight, deliveryFee)
     {
@@ -24,6 +23,11 @@ public class StandardShipment : Shipment, ITrackable
     public override string GetTrackingStatus()
     {
         return $"Shipment {TrackingCode} is Ready";
+    }
+
+    public override decimal CalculateInsurance()
+    {
+        return EstimatedCost * 0.05m; // 5% of the estimated cost
     }
 
     #endregion

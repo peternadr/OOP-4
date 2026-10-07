@@ -1,7 +1,7 @@
 ﻿
 namespace DeliverySystem.SmartDeliveryManagementSystem;
 
-public class ExpressShipment : Shipment, ITrackable
+public class ExpressShipment : Shipment
 {
     private decimal extraFee;
 
@@ -51,6 +51,11 @@ public class ExpressShipment : Shipment, ITrackable
     public override string GetTrackingStatus()
     {
         return $"Shipment {TrackingCode} is in Out for Delivery.";
+    }
+
+    override public decimal CalculateInsurance()
+    {
+        return EstimatedCost * 0.08m; // 8% of the estimated cost
     }
 
     #endregion

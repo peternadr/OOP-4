@@ -75,5 +75,10 @@ public class InternationalShipment : Shipment
         return $"Shipment {TrackingCode} has been Delivered.";
     }
 
+    override public decimal CalculateInsurance()
+    {
+        return EstimatedCost * 0.12m; // 12% of the estimated cost
+    }
+
     #endregion
 }

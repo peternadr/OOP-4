@@ -1,6 +1,6 @@
 ﻿namespace DeliverySystem.SmartDeliveryManagementSystem;
 
-public class Shipment : ITrackable
+public class Shipment : ITrackable, IInsurable
 {
 
     #region Fields
@@ -144,6 +144,11 @@ public class Shipment : ITrackable
     public virtual string GetTrackingStatus()
     {
         return $"Shipment with tracking code {TrackingCode} is in transit.";
+    }
+
+    public virtual decimal CalculateInsurance()
+    {
+        return EstimatedCost;
     }
 
     #endregion
